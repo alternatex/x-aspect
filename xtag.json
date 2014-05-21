@@ -1,0 +1,30 @@
+{
+  "name": "Aspect",
+  "tagName": "x-tag-aspect",
+  "version": "0.1.0",
+  "author": "Gianni Furger",
+  "description": "A X-Tag element for AOP with before, around, on, afterReturning, afterThrowing, after advice, and pointcuts",
+  "demo": "index.html",
+  "categories": [
+    "web-component",
+    "web-components",
+    "aop",
+    "aspect",
+    "advice",    
+    "pointcut",
+    "trace",
+    "tracing",
+    "memoize",
+    "cache",
+    "non-invasive",
+    "meld"
+  ],
+  "compatibility": {},
+  "documentation": {
+    "description": "A X-Tag element for AOP with before, around, on, afterReturning, afterThrowing, after advice, and pointcuts",
+    "attributes": {},
+    "events": {},
+    "methods": {},
+    "getters": {}
+  }
+}
