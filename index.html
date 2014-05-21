@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>X-Aspect by alternatex</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>X-Aspect</h1>
+        <p>A X-Tag element for AOP with before, around, on, afterReturning, afterThrowing, after advice, and pointcuts</p>
+
+        <p class="view"><a href="https://github.com/alternatex/x-aspect">View the Project on GitHub <small>alternatex/x-aspect</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/alternatex/x-aspect/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/alternatex/x-aspect/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/alternatex/x-aspect">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="x-aspect" class="anchor" href="#x-aspect"><span class="octicon octicon-link"></span></a>&lt;x-aspect&gt;</h1>
+
+<p>A <a href="http://www.x-tags.org">X-Tag</a> element for AOP with before, around, on, afterReturning, afterThrowing, after advice, and pointcuts.</p>
+
+<blockquote>
+<p>Maintained by <a href="https://github.com/alternatex">Gianni Furger</a>.</p>
+</blockquote>
+
+<p>Wrapping <a href="https://github.com/cujojs/meld">meld</a> by CujoJS team.</p>
+
+<h2>
+<a name="use-cases" class="anchor" href="#use-cases"><span class="octicon octicon-link"></span></a>Use Cases</h2>
+
+<ul>
+<li>Logging</li>
+<li>Profiling</li>
+<li>Security</li>
+<li>Transactions</li>
+</ul><h2>
+<a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h2>
+
+<blockquote>
+<p><a href="http://alternatex.github.io/x-aspect">Check it live</a>.</p>
+</blockquote>
+
+<h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<p>Install with <a href="http://bower.io">Bower</a>:</p>
+
+<div class="highlight highlight-sh"><pre><span class="nv">$ </span>bower install --save x-tag-aspect
+</pre></div>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<ol>
+<li>
+<p>Import Web Components' polyfill:</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"dist/x-tags-components.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+</li>
+<li>
+<p>Import <code>meld</code>:</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"app/bower_components/meld/meld.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+</li>
+<li>
+<p>Import Custom Element:</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"dist/aspect.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+</li>
+<li>
+<p>Start using it!</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;x-aspect</span> <span class="na">origin=</span><span class="s">""</span> <span class="na">source=</span><span class="s">"console"</span> <span class="na">function=</span><span class="s">"log"</span> <span class="na">advice=</span><span class="s">""</span> <span class="na">condition=</span><span class="s">""</span> <span class="na">trigger=</span><span class="s">""</span><span class="nt">/&gt;</span>
+</pre></div>
+</li>
+</ol><h2>
+<a name="examples" class="anchor" href="#examples"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<h4>
+<a name="html" class="anchor" href="#html"><span class="octicon octicon-link"></span></a>HTML</h4>
+
+<div class="highlight highlight-html"><pre>
+<span class="c">&lt;!-- Intercept console.log  --&gt;</span>
+<span class="nt">&lt;x-aspect</span> <span class="na">origin=</span><span class="s">""</span> <span class="na">source=</span><span class="s">"console"</span> <span class="na">function=</span><span class="s">"log"</span> <span class="na">advice=</span><span class="s">""</span> <span class="na">condition=</span><span class="s">""</span> <span class="na">trigger=</span><span class="s">""</span><span class="nt">/&gt;</span>
+
+</pre></div>
+
+<h4>
+<a name="javascript" class="anchor" href="#javascript"><span class="octicon octicon-link"></span></a>JavaScript</h4>
+
+<p>You can listen to a <code>aspect-changed</code> event for details about the aspect that was matched.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'aspect-changed'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">aspect</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">aspect</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+
+<h2>
+<a name="setup" class="anchor" href="#setup"><span class="octicon octicon-link"></span></a>Setup</h2>
+
+<p>In order to run it locally you'll need a basic server setup.</p>
+
+<ol>
+<li>Install <a href="http://nodejs.org/download/">Node.js</a>
+</li>
+<li>
+<p>Install <a href="http://gruntjs.com/">Grunt</a>:</p>
+
+<div class="highlight highlight-sh"><pre><span class="nv">$ </span>npm install --global grunt-cli
+</pre></div>
+</li>
+<li>Install <a href="http://bower.io/">Bower</a>
+</li>
+<li>
+<p>Install local dependencies:</p>
+
+<div class="highlight highlight-sh"><pre><span class="nv">$ </span>npm install <span class="o">&amp;&amp;</span> bower install
+</pre></div>
+</li>
+<li>
+<p>Run a local server and open <code>http://localhost:3001</code>.</p>
+
+<div class="highlight highlight-sh"><pre><span class="nv">$ </span>grunt connect
+</pre></div>
+</li>
+</ol><h2>
+<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h2>
+
+<table>
+<thead><tr>
+<th>Attribute</th>
+<th>Options</th>
+<th>Default</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>origin</code></td>
+<td><em>object</em></td>
+<td>``</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td>*object</td>
+<td>function*</td>
+<td>``</td>
+</tr>
+<tr>
+<td><code>function</code></td>
+<td><em>function</em></td>
+<td>``</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>advice</code></td>
+<td><em>string</em></td>
+<td>``</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>condition</code></td>
+<td><em>boolean</em></td>
+<td>``</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>trigger</code></td>
+<td><em>event</em></td>
+<td>``</td>
+<td>-</td>
+</tr>
+</tbody>
+</table><h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<ol>
+<li>Fork it!</li>
+<li>Create your feature branch: <code>git checkout -b my-new-feature</code>
+</li>
+<li>Commit your changes: <code>git commit -m 'Add some feature'</code>
+</li>
+<li>Push to the branch: <code>git push origin my-new-feature</code>
+</li>
+<li>Submit a pull request :D</li>
+</ol><h2>
+<a name="history" class="anchor" href="#history"><span class="octicon octicon-link"></span></a>History</h2>
+
+<p>For detailed changelog, check <a href="https://github.com/webcomponents/element-boilerplate/releases">Releases</a>.</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p><a href="http://opensource.org/licenses/MIT">MIT License</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/alternatex">alternatex</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
