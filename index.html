@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>&lt;x-tag-aspect&gt;</title>  
+    <script type="text/javascript" src="test/lib/jquery-1.11.0.min.js"></script>      
+    <script type="text/javascript" src="dist/x-tag-components.js"></script> 
+    <script type="text/javascript" src="dist/meld.browser.min.js"></script>      
+    <script type="text/javascript" src="dist/aspect.js"></script>          
+    <script>
+      function before(){
+        console.warn("before".toUpperCase(), arguments[0]);
+        if(arguments[0]=='A' || arguments[0]=='hi'){
+          var args = Array.prototype.slice.call(arguments);
+          args[0]='B';
+          window[this.object][this.method].apply(window[this.object], args);
+          throw new Error("suppress".toUpperCase());
+        }      
+        return arguments;
+      }
+      
+      function after(){
+        console.warn("after".toUpperCase());
+        return false;
+      }
+    </script>   
+</head>
+<body>
+
+  <h1><a href="http://github.com/alternatex/x-aspect">&lt;x-aspect&gt;</a></h1>
+  <h2>A <a href="http://x-tags.org">X-Tag</a> element for AOP with before, around, on, afterReturning, afterThrowing, after advice, and pointcuts. Wrapping <a href="https://github.com/cujojs/meld">Meld</a> by Cujojs Team.</h2>
+
+  <!-- Define aspects -->
+  <x-aspect object="window" method="alert" advice="before" trigger="before"></x-aspect>
+  <x-aspect object="window" method="alert" advice="after" trigger="after"></x-aspect>
+
+  <h2>Examples</h2>
+  <a href="javascript: alert('A');">alert('A');</a>
+
+  <h2>Usage</h2>
+  <pre>
+&lt;script&gt;
+  function before(){
+    console.warn("before".toUpperCase(), arguments[0]);
+    if(arguments[0]=='A'){
+      var args = Array.prototype.slice.call(arguments);
+      args[0]='B';
+      window[this.object][this.method].apply(window[this.object], args);
+      throw new Error("suppress");
+    }      
+    return arguments;
+  }
+  function after(){
+    console.warn("after".toUpperCase());
+    return false;
+  }
+&lt;/script&gt;
+
+&lt;x-aspect object="window" method="alert" advice="before" trigger="before"&gt;&lt;/x-aspect&gt;
+&lt;x-aspect object="window" method="alert" advice="after" trigger="after"&gt;&lt;/x-aspect&gt;
+  </pre>
+</body>
+</html
