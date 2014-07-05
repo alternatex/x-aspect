@@ -11,18 +11,6 @@
    *
    * Examples:
    *
-   * Automatically navigate to a route 'home':
-   *   <x-aspect source="window"  auto>
-   *     <x-aspect-reporter call="" return="" throw=""/>
-   *   </x-aspect>
-   *
-   * Define paths to routes we would like to support:
-   *   <x-aspect path="/favorites"/>
-   *   <x-aspect path="/about"/>
-   *   <x-aspect path="/books"/>
-   *   <x-aspect path="/books/view/:bookId"/>
-   *   <x-aspect path="/:foo/:bar/:bazz"/>
-   *
    * @class x-aspect
    * @blurb Aspect oriented programming / interceptions for X-Tags/Brick
    * @author Gianni Furger
