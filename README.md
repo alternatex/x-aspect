@@ -62,16 +62,6 @@ $ bower install --save x-tag-aspect
 
 ```
 
-#### JavaScript
-
-You can listen to a `aspect-changed` event for details about the aspect that was matched.
-
-```javascript
-document.addEventListener('aspect-changed', function (aspect) {
-    console.log(aspect);
-});
-```
-
 ## Setup
 
 In order to run it locally you'll need a basic server setup.
