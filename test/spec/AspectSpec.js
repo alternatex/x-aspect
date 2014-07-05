@@ -2,7 +2,7 @@ bar = 123;
 
 describe("<x-aspect>", function() {
 
-  describe("delegates advices to cujojs/meld, allowing you to", function(){  
+  describe("delegates advices to cujojs/meld it", function(){  
 
     // flag initialization
     var initialized = false;
@@ -28,7 +28,7 @@ describe("<x-aspect>", function() {
         // async processing we need (next tick)
         setTimeout(function(){ done(); }, 10);
         
-        // !important
+        // important!
         setFixtures($element);        
 
         // attach spy to delegate method we want to call $element.attr('trigger')
