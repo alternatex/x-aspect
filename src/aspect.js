@@ -107,10 +107,6 @@
         // fired when attributes are set
       }
     },
-    methods: {
-      fireChange: function() {
-        xtag.fireEvent(this, 'aspect-changed', {}); 
-      }
-    }
+    methods: {}
   });
 })();
