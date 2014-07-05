@@ -9,18 +9,18 @@
     <script type="text/javascript" src="dist/aspect.js"></script>          
     <script>
       function before(){
-        console.warn("before".toUpperCase(), arguments[0]);
+        console.warn("before" arguments[0]);
         if(arguments[0]=='A' || arguments[0]=='hi'){
           var args = Array.prototype.slice.call(arguments);
           args[0]='B';
           window[this.object][this.method].apply(window[this.object], args);
-          throw new Error("suppress".toUpperCase());
+          throw new Error("suppress");
         }      
         return arguments;
       }
       
       function after(){
-        console.warn("after".toUpperCase());
+        console.warn("after");
         return false;
       }
     </script>   
@@ -41,7 +41,7 @@
   <pre>
 &lt;script&gt;
   function before(){
-    console.warn("before".toUpperCase(), arguments[0]);
+    console.warn("before", arguments[0]);
     if(arguments[0]=='A'){
       var args = Array.prototype.slice.call(arguments);
       args[0]='B';
@@ -51,7 +51,7 @@
     return arguments;
   }
   function after(){
-    console.warn("after".toUpperCase());
+    console.warn("after");
     return false;
   }
 &lt;/script&gt;
